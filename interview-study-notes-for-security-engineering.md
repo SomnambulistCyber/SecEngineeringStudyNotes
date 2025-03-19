@@ -2,8 +2,9 @@
 ### [nolang Twitter](https://twitter.com/__nolang)
 ### [nolang Github](https://github.com/gracenolan)
 ### [Somnambulist Github](https://github.com/BWC-Somnambulist)
-
+### This is now being updated to reflect questions/answers for Security Engineering Lead role - based on my own experiences and leadership style.
 ### Contents
+
 - [README](README.md)
 - [Learning Tips](#learning-tips)
 - [Interviewing Tips](#interviewing-tips)
@@ -20,8 +21,10 @@
 - [Detection](#detection)
 - [Digital Forensics](#digital-forensics)
 - [Incident Management](#incident-management)
+- [Security Operations](#security-operations)
 - [Coding & Algorithms](#coding--algorithms)
 - [Security Themed Coding Challenges](#security-themed-coding-challenges)
+- [Leader - Leader model with notes on neurodivergence](#Leader-Leader-model)
 
 # Background
 
@@ -842,6 +845,32 @@ Practice describing security concepts in the context of an attack. These categor
   	- SANS' PICERL (Preparation, Identification, Containement, Eradication, Recovery, Lessons learned)
    	- Google's IMAG (Incident Management At Google)
 
+# Security Operations
+- Where to start with planning a SecOps Function
+	- Create a Strong Mission Statement and understand what you are trying to achieve.
+   	- **Phase 1: Establish Baseline SOC Capabilities**
+   		- Ensure visibility of key assets, infrastructure, and threats.
+   	 	- If you already know some logging costs are going to be excessive, define use cases early and often during log onboarding so you can trim logs fast.
+   	  	- Using a framework like [DeTTEC](https://github.com/rabobank-cdc/DeTTECT) to map threats, logging, and mitigations provides a good starting point for gap analysis.
+   	  	- Define clear incident response playbooks and procedures, suggest using NIST, SANS PICERL, or IMAG as a framework.
+   	  	- Configure some automated responses, connetors, and low effort logic at this point to help productivity.
+   	  	- Start measuring and tracking KPIs (Mean time to detection/remediation, False Positive rate) and define what else you want to track, even if you cannot do it at this stage. *Raw stats like how many alerts and how many an analyst deals with are usually low value and lead to unwanted anti patterns.
+  	- **Phase 2: Threat Intel and Threat Hunting**
+   	  	- Establish threat informed decision making and shift from reactive to proactive.
+   	   	- Set up and configure a Threat Intelligence Platform.
+   	    	- Automate indicator ingestion and enrichment into your SIEM, add tags, etc.
+   	     	- From operational intelligence and reports start creating a threat hunt process/procedure.
+   	      	- Define and implement workflows for to improve SOC detection engineering, using [MITRE ATT&CK](https://attack.mitre.org/) mapping to ensure coverage of known TTPs.
+   	      	- Create custom detections based on intelligence and organisational context.
+   	- **Phase 3: Continuous improvement**
+   		- Automate and optimise SOC processes based on intelligence from KPIs/Metrics and the TIP.
+   	 	- Automate the pain away (repetive tasks, well defined processes).
+   	  	- Enrich SIEM incidents to increase single pane of glass goal.
+   	  	- Attempt to reduce FP rate further.
+   	  	- Conduct Red/Purple Team exercises
+   	  	- Alternative is to use something like [Atomic Red Team](https://github.com/redcanaryco/atomic-red-team) or [Atomic Threat Coverage](https://github.com/atc-project/atomic-threat-coverage).
+   	  	- Develop continuous improvement plan for the SOC - including team member expertise and career progression.
+   	  	- Include proper post mortems in major incidents and near misses.
 
 # Coding & Algorithms
 
@@ -914,10 +943,31 @@ These security engineering challenges focus on text parsing and manipulation, ba
 
 - Recover deleted items
 	- Most software will keep deleted items for ~30 days for recovery. Find out where these are stored. 
-	- Write a script to pull these items from local databases. 
+	- Write a script to pull these items from local databases.
  
 - Malware signatures
 	- A program that looks for malware signatures in binaries and code samples.
 	- Look at Yara rules for examples.
 
-Put your work-in-progress scripts on GitHub and link to them on your resume/CV. Resist the urge to make your scripts perfect or complete before doing this. 
+Put your work-in-progress scripts on GitHub and link to them on your resume/CV. Resist the urge to make your scripts perfect or complete before doing this.
+
+# Leader - Leader Model
+
+It should be noted that everyone has a different leadership style. I prefer to lean on the expertise, experience, and context of my team, and empower them to make right decisions - where I become an enabler/force-multiplier for their efforts.
+**Ensure clarity of mission and objectives - so that every decision ties directly back to overarching goals, no matter who initiates it.**
+Leader - Leader model, which can be summarised as:
+1. Distributing Authority and Decision-Making
+	1. Shift from getting permission to "I intend to..."
+	2. Empower those closest to the operational details
+2. Establish clear goals and expectations
+3. Emphasise technical and contextual knowledge
+4. Greater freedom for team members to propose and ACT on their ideas, but also demands greater personal responsibility
+5. Reduces bottlenecks for initiatives, increases agility, and develops leadership skills across the team
+6. Iterative Feedback loops should be promoted with open dialogue among all ranks (feedback should be immediate and constructive)
+7. With ownership, team members are mor inclined to suggest process improvements, take calculated risks, and experiment responsibly to enhance performance.
+
+Shift language from permission seeking to initiative.
+Develop team members competence.
+Ensure clarity of mission and objectives - so that every decision ties directly back to overarching goals, no matter who initiates it.
+Instil accountability, individuals must own results that are both positive and negative. _But failing should not be seen as a negative outcome_, so long as something was learned from it.
+
