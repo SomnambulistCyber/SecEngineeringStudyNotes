@@ -24,7 +24,7 @@
 - [Security Operations](#security-operations)
 - [Coding & Algorithms](#coding--algorithms)
 - [Security Themed Coding Challenges](#security-themed-coding-challenges)
-- [Leader - Leader model with notes on neurodivergence](#Leader-Leader-model)
+- [Leader - Leader model](#Leader-Leader-model)
 
 # Background
 
